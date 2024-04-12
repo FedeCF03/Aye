@@ -224,7 +224,7 @@ public class BinaryTree<T> {
 			;
 			return suma;
 		}
-
+/ checkear si es empty y null**/
 		suma += arbol1.getData();
 		arbol1.setData(suma);
 		return suma;
