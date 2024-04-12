@@ -1,11 +1,15 @@
 
 public class App {
     public static void main(String[] args) throws Exception {
-        BinaryTree<Integer> tree = new BinaryTree<>(0);
-        BinaryTree<Integer> aux = tree;
-        ParcialArboles arboles = new ParcialArboles();
 
-        System.out.println(arboles.esPrefijo(arboles.getArbol(), arboles.getArbol()));
+        BinaryTree<Integer> ab = new BinaryTree<Integer>(0);
+        BinaryTree<Integer> ab2 = ab;
+        ab.addLeftChild(new BinaryTree<Integer>(4));
+        ab.addRightChild(new BinaryTree<Integer>(5));
+
+        ProfundidadDeArbolBinario pf = new ProfundidadDeArbolBinario();
+        pf.root = ab;
+        System.out.println(pf.sumaElementosProfundidad(1));
     }
 
 }
