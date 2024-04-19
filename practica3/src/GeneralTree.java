@@ -87,6 +87,7 @@ public class GeneralTree<T> {
 		Queue<GeneralTree<T>> cola = new Queue<GeneralTree<T>>();
 		cola.add(this);
 		int ancho_max = 0;
+		GeneralTree<T> act = new GeneralTree<>();
 		for (int i = 0; i < this.altura(); i++) {
 			int nodos_nivel = 0;
 			while (!cola.isEmpty()) {
@@ -99,9 +100,53 @@ public class GeneralTree<T> {
 			}
 			ancho_max = Math.max(ancho_max, nodos_nivel);
 		}
-		GeneralTree<T> act = new GeneralTree<>();
 
 		return ancho_max;
+	}
+
+	public double devolverMaximoPromedio(GeneralTree<AreaEmpresa> arbol) {
+		Queue cola = new Queue<Integer>();
+		GeneralTree<AreaEmpresa> act = GeneralTree<AreaEmpresa>();
+		double tardanzaMax;
+		cola.enqueue(arbol);		
+		for (int i=0;i < this.altura(); i++){
+				double tardanzaNivel=0;
+				int cantNivel=0;
+			while (!cola.isEmpty()){
+				act= cola.dequeue;
+				GeneralTree<AreaEmpresa> childrens= act.getChildren();
+				cantNivel++;
+				tardanzaNivel+= act.getData().gettardanzaTransmisionMensajes();
+				for (GeneralTree<AreaEmpresa> child:childrens){
+					cola.enqueue(child);
+				}
+
+			}
+			tardanzaNivel= tardanzaNivel/cantNivel;
+			tardanzaMax=Math.max(tardanzaMax,tardanzaNivel);
+
+		}
+			return tardanzaMax;
+	}
+
+	private GeneralTree<T> buscarHijo(T b, GeneralTree<T> ag, GeneralTree<T> res) {
+		if (b == ag.getData())
+			return ag;
+		List<GeneralTree<T>> children = ag.getChildren();
+		for (GeneralTree<T> child : children) {
+			res = buscarHijo(b, child, res);
+		}
+		return res;
+	}
+
+	public boolean esAncestro(T a, T b) {
+		GeneralTree<T> res = buscarHijo(a, this, null);
+		if (!(res == null)) {
+			res = buscarHijo(b, res, null);
+			if (!(res == null))
+				return true;
+		}
+		return false;
 	}
 
 	private void numerosImparesMayoresQuePreOrden(GeneralTree<Integer> a,
