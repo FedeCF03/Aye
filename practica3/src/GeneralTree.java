@@ -143,7 +143,7 @@ public class GeneralTree<T> {
 		GeneralTree<T> res = buscarHijo(a, this, null);
 		if (!(res == null)) {
 			res = buscarHijo(b, res, null);
-			if (!(res == null))
+			if (!(  buscarHijo(b, res, null);== null))
 				return true;
 		}
 		return false;
