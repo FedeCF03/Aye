@@ -2,7 +2,7 @@
 import java.io.Console;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
+import Queue;
 
 public class GeneralTree<T> {
 
