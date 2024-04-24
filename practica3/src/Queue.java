@@ -1,8 +1,11 @@
 
 import java.security.Provider.Service;
-import java.util.*;
+import java.io.Console;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 
-public class Queue<T> extends Service {
+public class Queue<T> {
     protected List<T> data;
 
     public Queue() {

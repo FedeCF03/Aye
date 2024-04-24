@@ -2,7 +2,6 @@
 import java.io.Console;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Queue;
 
 public class GeneralTree<T> {
 
@@ -85,7 +84,7 @@ public class GeneralTree<T> {
 
 	public int ancho() {
 		Queue<GeneralTree<T>> cola = new Queue<GeneralTree<T>>();
-		cola.add(this);
+		cola.enqueue(this);
 		int ancho_max = 0;
 		GeneralTree<T> act = new GeneralTree<>();
 		for (int i = 0; i < this.altura(); i++) {
@@ -95,7 +94,7 @@ public class GeneralTree<T> {
 				List<GeneralTree<T>> childrens = act.getChildren();
 				nodos_nivel++;
 				for (GeneralTree<T> child : childrens) {
-					cola.add(child);
+					cola.enqueue(child);
 				}
 			}
 			ancho_max = Math.max(ancho_max, nodos_nivel);
@@ -104,30 +103,34 @@ public class GeneralTree<T> {
 		return ancho_max;
 	}
 
-	public double devolverMaximoPromedio(GeneralTree<AreaEmpresa> arbol) {
-		Queue cola = new Queue<Integer>();
-		GeneralTree<AreaEmpresa> act = GeneralTree<AreaEmpresa>();
-		double tardanzaMax;
-		cola.enqueue(arbol);		
-		for (int i=0;i < this.altura(); i++){
-				double tardanzaNivel=0;
-				int cantNivel=0;
-			while (!cola.isEmpty()){
-				act= cola.dequeue;
-				GeneralTree<AreaEmpresa> childrens= act.getChildren();
-				cantNivel++;
-				tardanzaNivel+= act.getData().gettardanzaTransmisionMensajes();
-				for (GeneralTree<AreaEmpresa> child:childrens){
-					cola.enqueue(child);
-				}
-
-			}
-			tardanzaNivel= tardanzaNivel/cantNivel;
-			tardanzaMax=Math.max(tardanzaMax,tardanzaNivel);
-
-		}
-			return tardanzaMax;
-	}
+	/*
+	 * public double devolverMaximoPromedio(GeneralTree<AreaEmpresa> arbol) {
+	 * 
+	 * @SuppressWarnings("rawtypes")
+	 * Queue cola = new Queue<Integer>();
+	 * GeneralTree<AreaEmpresa> act = GeneralTree<AreaEmpresa>();
+	 * double tardanzaMax;
+	 * cola.enqueue(arbol);
+	 * for (int i=0;i < this.altura(); i++){
+	 * double tardanzaNivel=0;
+	 * int cantNivel=0;
+	 * while (!cola.isEmpty()){
+	 * act= cola.dequeue;
+	 * GeneralTree<AreaEmpresa> childrens= act.getChildren();
+	 * cantNivel++;
+	 * tardanzaNivel+= act.getData().gettardanzaTransmisionMensajes();
+	 * for (GeneralTree<AreaEmpresa> child:childrens){
+	 * cola.enqueue(child);
+	 * }
+	 * 
+	 * }
+	 * tardanzaNivel= tardanzaNivel/cantNivel;
+	 * tardanzaMax=Math.max(tardanzaMax,tardanzaNivel);
+	 * 
+	 * }
+	 * return tardanzaMax;
+	 * }
+	 */
 
 	private GeneralTree<T> buscarHijo(T b, GeneralTree<T> ag, GeneralTree<T> res) {
 		if (b == ag.getData())
@@ -149,23 +152,23 @@ public class GeneralTree<T> {
 		return false;
 	}
 
-	private void numerosImparesMayoresQuePreOrden(GeneralTree<Integer> a,
+	private void numerosImparesMayoresQuePreOrden(GeneralTree<T> a,
 			Integer n, List<Integer> lista) {
-		if ((a.getData() % 2 == 1) && (a.getData() > n))
-			lista.add(a.getData());
-		List<GeneralTree<Integer>> children = a.getChildren();
-		for (GeneralTree<Integer> child : children) {
+
+		System.out.println(a.getData());
+		List<GeneralTree<T>> children = a.getChildren();
+		for (GeneralTree<T> child : children) {
 			child.numerosImparesMayoresQuePreOrden(child, n, lista);
 		}
 
 	}
 
 	@SuppressWarnings("unchecked")
-	public List<Integer> numerosImparesMayoresQuePreOrden(GeneralTree<Integer> a,
+	public void numerosImparesMayoresQuePreOrden(GeneralTree<T> a,
 			Integer n) {
 		List<Integer> lista = new LinkedList<Integer>();
 		numerosImparesMayoresQuePreOrden(a, n, lista);
-		return (List<Integer>) lista;
+
 	}
 
 	private void numerosImparesMayoresQueInOrden(GeneralTree<Integer> a,

@@ -13,16 +13,16 @@ public class App {
         children3.add(new GeneralTree<Integer>(31));
         children3.add(new GeneralTree<Integer>(32));
         GeneralTree<Integer> a3 = new GeneralTree<Integer>(3, children3);
-        GeneralTree<Integer> a4 = new GeneralTree<Integer>(5, children3);
-        a4.addChild(new GeneralTree<Integer>(355));
         List<GeneralTree<Integer>> childen = new LinkedList<GeneralTree<Integer>>();
         childen.add(a1);
         childen.add(a2);
         childen.add(a3);
-        childen.add(a4);
         GeneralTree<Integer> a = new GeneralTree<Integer>(0, childen);
-        System.out.println("Datos del Arbol: ");
-        System.out.println(a.nivel(0));
-
+        Caminos ca = new Caminos(a);
+        List<Integer> l = ca.caminoAHojaMasLejana();
+        System.out.println("sali");
+        for (Integer d : l) {
+            System.out.println(d);
+        }
     }
 }
