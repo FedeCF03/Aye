@@ -2,14 +2,11 @@
 import java.io.Console;
 import java.util.LinkedList;
 import java.util.List;
-<<<<<<< HEAD
-=======
 import Queue;
->>>>>>> b39a94f83165e4b918fd2fda6f3bcf4914ff79fe
 
 public class GeneralTree<T> {
 
-	private T data;
+	private int data;
 	private List<GeneralTree<T>> children = new LinkedList<GeneralTree<T>>();
 
 	public GeneralTree() {
@@ -29,8 +26,8 @@ public class GeneralTree<T> {
 		return data;
 	}
 
-	public void setData(T data) {
-		this.data = data;
+	public void setData(T i) {
+		this.data = i;
 	}
 
 	public List<GeneralTree<T>> getChildren() {
@@ -263,6 +260,13 @@ public class GeneralTree<T> {
 		int alt = 0, max = 0;
 		return altura_private(alt, max, this);
 
+	}
+
+	public void setData(int i) {
+		this.data = i;
+
+		// TODO Auto-generated method stub
+		throw new UnsupportedOperationException("Unimplemented method 'setData'");
 	}
 
 }
