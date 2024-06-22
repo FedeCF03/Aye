@@ -2,11 +2,13 @@
 import java.io.Console;
 import java.util.LinkedList;
 import java.util.List;
-import Queue;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class GeneralTree<T> {
 
-	private int data;
+	private T data;
 	private List<GeneralTree<T>> children = new LinkedList<GeneralTree<T>>();
 
 	public GeneralTree() {
@@ -26,8 +28,8 @@ public class GeneralTree<T> {
 		return data;
 	}
 
-	public void setData(T i) {
-		this.data = i;
+	public void setData(T data) {
+		this.data = data;
 	}
 
 	public List<GeneralTree<T>> getChildren() {
@@ -147,7 +149,7 @@ public class GeneralTree<T> {
 		GeneralTree<T> res = buscarHijo(a, this, null);
 		if (!(res == null)) {
 			res = buscarHijo(b, res, null);
-			if (!(  buscarHijo(b, res, null);== null))
+			if (!(buscarHijo(b, res, null) == null))
 				return true;
 		}
 		return false;
@@ -260,13 +262,6 @@ public class GeneralTree<T> {
 		int alt = 0, max = 0;
 		return altura_private(alt, max, this);
 
-	}
-
-	public void setData(int i) {
-		this.data = i;
-
-		// TODO Auto-generated method stub
-		throw new UnsupportedOperationException("Unimplemented method 'setData'");
 	}
 
 }

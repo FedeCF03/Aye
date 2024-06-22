@@ -1,8 +1,6 @@
 {
-    "java.project.sourcePaths": ["src"],
-    "java.project.outputPath": "bin",
-    "java.project.referencedLibraries": [
-        "lib/**/*.jar"
-    ],
-    "dotnet.defaultSolution": "teoria6.sln"
+  "java.project.sourcePaths": [],
+  "java.project.outputPath": "bin",
+  "java.project.referencedLibraries": ["lib/**/*.jar"],
+  "dotnet.defaultSolution": "teoria6.sln"
 }

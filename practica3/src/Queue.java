@@ -1,15 +1,10 @@
 
-import java.security.Provider.Service;
-import java.io.Console;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
-public class Queue<T> {
+public class Queue<T> extends Sequence {
     protected List<T> data;
 
     public Queue() {
-
         this.data = new ArrayList<T>();
     }
 
