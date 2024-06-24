@@ -8,39 +8,29 @@ import tp5.ejercicio1.adjList.AdjListGraph;
 public class app {
     public static void main(String[] args) throws Exception {
         Graph<String> bosque = new AdjListGraph<String>();
-        Vertex<String> v1 = bosque.createVertex("Casa Caperucita");
-        Vertex<String> v2 = bosque.createVertex("Claro 3");
-        Vertex<String> v3 = bosque.createVertex("Claro 1");
-        Vertex<String> v4 = bosque.createVertex("Claro 2");
-        Vertex<String> v5 = bosque.createVertex("Claro 5");
-        Vertex<String> v6 = bosque.createVertex("Claro 4");
-        Vertex<String> v7 = bosque.createVertex("Casa Abuelita");
-        bosque.connect(v1, v2, 4);
-        bosque.connect(v2, v1, 4);
-        bosque.connect(v1, v3, 3);
-        bosque.connect(v3, v1, 3);
-        bosque.connect(v1, v4, 4);
-        bosque.connect(v4, v1, 4);
-        bosque.connect(v2, v5, 15);
-        bosque.connect(v5, v2, 15);
-        bosque.connect(v3, v5, 3);
-        bosque.connect(v5, v3, 3);
-        bosque.connect(v4, v3, 4);
-        bosque.connect(v3, v4, 4);
-        bosque.connect(v4, v5, 11);
-        bosque.connect(v5, v4, 11);
-        bosque.connect(v4, v6, 10);
-        bosque.connect(v6, v4, 10);
-        bosque.connect(v4, v3, 4);
-        bosque.connect(v3, v4, 4);
-        bosque.connect(v5, v7, 4);
-        bosque.connect(v7, v5, 4);
-        bosque.connect(v6, v7, 9);
-        bosque.connect(v7, v6, 9);
-        Caperucita bos = new Caperucita(bosque);
-        List<List<String>> lis = bos.recorridoMasSeguro();
-        for (List<String> l : lis) {
-            System.out.println(l);
-        }
+        Vertex<String> v1 = bosque.createVertex("mendoza");
+        Vertex<String> v2 = bosque.createVertex("tunuyan");
+        Vertex<String> v3 = bosque.createVertex("san martin");
+        Vertex<String> v4 = bosque.createVertex("malargue");
+        Vertex<String> v5 = bosque.createVertex("general alvear");
+        Vertex<String> v6 = bosque.createVertex("san rafael");
+        Vertex<String> v7 = bosque.createVertex("la paz");
+        Vertex<String> v8 = bosque.createVertex("santa rosa");
+
+        bosque.connect(v1, v2, 10);
+        bosque.connect(v1, v3, 6);
+        bosque.connect(v2, v3, 10);
+        bosque.connect(v2, v4, 12);
+        bosque.connect(v6, v2, 11);
+        bosque.connect(v5, v4, 6);
+        bosque.connect(v6, v5, 7);
+        bosque.connect(v3, v6, 13);
+        bosque.connect(v3, v7, 8);
+        bosque.connect(v7, v8, 2);
+        List<String> evitar = new LinkedList<String>();
+        evitar.add("general alvear");
+        evitar.add("la paz");
+
+        System.out.println(Parcial4.resolver4(bosque, 5, 80, evitar));
     }
 }
